@@ -1,0 +1,84 @@
+# Provide a list of paths to MSA files for which you wish to generate training data
+# the data type is automatically inferred and the model set to GTR+G for DNA data and to LG+G for AA data
+
+msa_paths: [
+lexibench_bin_msas/mixtecansubgrouping.phy,
+lexibench_bin_msas/starostintujia.phy,
+lexibench_bin_msas/dunnaslian.phy,
+lexibench_bin_msas/syrjaenenuralic.phy,
+lexibench_bin_msas/constenlachibchan.phy,
+lexibench_bin_msas/gaotb.phy,
+lexibench_bin_msas/chaconarawakan.phy,
+lexibench_bin_msas/lieberherrkhobwa.phy,
+lexibench_bin_msas/leekoreanic.phy,
+lexibench_bin_msas/utoaztecan.phy,
+lexibench_bin_msas/sagartst.phy,
+lexibench_bin_msas/gerarditupi.phy,
+lexibench_bin_msas/mcelhanonhuon.phy,
+lexibench_bin_msas/saenkoromance.phy,
+lexibench_bin_msas/birchallchapacuran.phy,
+lexibench_bin_msas/chaconbaniwa.phy,
+lexibench_bin_msas/bowernpny.phy,
+lexibench_bin_msas/felekesemitic.phy,
+lexibench_bin_msas/sidwellbahnaric.phy,
+lexibench_bin_msas/hattorijaponic.phy,
+lexibench_bin_msas/yanglalo.phy,
+lexibench_bin_msas/iecor.phy,
+#lexibench_bin_msas/abvdoceanic.phy,
+lexibench_bin_msas/chaconcolumbian.phy,
+lexibench_bin_msas/galuciotupi.phy,
+lexibench_bin_msas/kahd.phy,
+lexibench_bin_msas/sidwellvietic.phy,
+lexibench_bin_msas/liusinitic.phy,
+lexibench_bin_msas/dunnielex.phy,
+lexibench_bin_msas/peirosaustroasiatic.phy,
+lexibench_bin_msas/oskolskayatungusic.phy,
+lexibench_bin_msas/walworthpolynesian.phy,
+lexibench_bin_msas/deepadungpalaung.phy,
+lexibench_bin_msas/dravlex.phy,
+lexibench_bin_msas/savelyevturkic.phy,
+lexibench_bin_msas/tuled.phy,
+lexibench_bin_msas/lionnetyotonahua.phy,
+lexibench_bin_msas/nagarajakhasian.phy,
+lexibench_bin_msas/houchinese.phy,
+lexibench_bin_msas/davletshinaztecan.phy,
+lexibench_bin_msas/wichmannmixezoquean.phy,
+lexibench_bin_msas/crossandean.phy,
+lexibench_bin_msas/starostinpie.phy,
+lexibench_bin_msas/zhivlovobugrian.phy,
+lexibench_bin_msas/robinsonap.phy,
+lexibench_bin_msas/chaconnorthwestarawakan.phy,
+]
+
+# to use partitioned MSAs, provide a link to the partition file for each MSA,
+# the first in RAxML-NG compatible format, the second in IQ-Tree compatible format
+# note that the MSA features will be computed for the entire alignment
+# In this case, the msa_paths list should be a list of lists:
+# msa_paths: [
+#    [/path/to/msa1, /path/to/msa1.part.ng, /path/to/msa1.part.iqt],
+#    /path/to/msa2, /path/to/msa2.part.ng, /path/to/msa2.part.iqt],
+#    ...
+# ]
+
+# After running the pipeline, the outdir will contain a subdirectory for each given MSA
+# each subdirectory contains:
+# - a directory called "output_files": contains all RAxML-NG and IQ-Tree log files
+# - an .sqlite3 database file containing all information, see README.md for database schema
+outdir: results_lexibench/
+
+software:
+  raxml-ng:
+    command: raxml-ng/bin/raxml-ng # https://github.com/amkozlov/raxml-ng
+    threads: 2
+  iqtree:
+    command: ../iqtree-2.0.6-Linux/bin/iqtree2 # http://www.iqtree.org
+    threads: 2
+
+# Specify whether to run the RAxML-NG bootstrapping and get tree metrics based on the support values
+# this is only recommended for smaller MSAs (e.g. morphological data)
+bootstrap_based_metrics: False
+
+_debug:
+  _num_pars_trees: 50
+  _num_rand_trees: 50
+  _num_parsimony_trees: 100

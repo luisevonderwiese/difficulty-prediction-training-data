@@ -17,8 +17,11 @@ rule iqtree_significance_tests_on_eval_trees:
         model       = lambda wildcards: iqtree_models[wildcards.msa],
         model_str   = "-p" if partitioned else "-m",
         threads     = config["software"]["iqtree"]["threads"]
+    resources:
+        mem_mb      = 1200
     run:
-        morph = "-st MORPH " if params.data_type == "MORPH" else ""
+        morph = "-st MORPH " if params.data_type == DataType.MORPH else ""
+        print("hi")
         shell("{iqtree_command} "
         "-s {params.msa} "
         "{morph} "

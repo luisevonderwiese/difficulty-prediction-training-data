@@ -2,20 +2,9 @@
 # the data type is automatically inferred and the model set to GTR+G for DNA data and to LG+G for AA data
 
 msa_paths: [
-babelnet_bin_msas/iecor_core-wordnet.bin.phy,
-babelnet_bin_msas/iecor_filter_5000.bin.phy,         
-babelnet_bin_msas/iecor_core-wordnet_epitran.bin.phy,
-babelnet_bin_msas/iecor_filter_epitran_5000.bin.phy,
-babelnet_bin_msas/main_core-wordnet.bin.phy,
-babelnet_bin_msas/main_filter_5000.bin.phy,
-babelnet_bin_msas/main_core-wordnet_epitran.bin.phy,
-babelnet_bin_msas/main_filter_epitran_5000.bin.phy,
-babelnet_bin_msas/all_core-wordnet.bin.phy,
-babelnet_bin_msas/all_filter_5000.bin.phy,
-babelnet_bin_msas/all_core-wordnet_epitran.bin.phy,
-babelnet_bin_msas/all_filter_epitran_5000.bin.phy,
-
-
+northeuralex_bin_msas/epitran.bin.phy,
+northeuralex_bin_msas/ipatok.bin.phy,
+northeuralex_bin_msas/original.bin.phy
 ]
 
 # to use partitioned MSAs, provide a link to the partition file for each MSA,
@@ -32,7 +21,7 @@ babelnet_bin_msas/all_filter_epitran_5000.bin.phy,
 # each subdirectory contains:
 # - a directory called "output_files": contains all RAxML-NG and IQ-Tree log files
 # - an .sqlite3 database file containing all information, see README.md for database schema
-outdir: results_babelnet/
+outdir: results_northeuralex/
 
 software:
   raxml-ng:

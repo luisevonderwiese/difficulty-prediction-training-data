@@ -4,6 +4,7 @@ import pathlib
 
 sys.path.append("rules/scripts")
 from pypythia.msa import MSA
+from pypythia.msa import DataType
 
 configfile: "config.yaml"
 
@@ -50,7 +51,7 @@ else:
         raxmlng_model = msa.get_raxmlng_model()
         raxmlng_models.append((name, raxmlng_model))
 
-        if msa.data_type == "MORPH":
+        if msa.data_type == DataType.MORPH:
             iqtree_models.append((name, "MK"))
         else:
             iqtree_models.append((name, f"{raxmlng_model}4+FO"))

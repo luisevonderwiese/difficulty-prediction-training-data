@@ -21,5 +21,3 @@ dependencies:
   - r-rmpfr
   - regex
   - pip
-  - pip:
-    - git+https://github.com/tschuelia/PyPythia.git
