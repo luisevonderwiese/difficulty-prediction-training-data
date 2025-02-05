@@ -6,7 +6,12 @@ Here we provide instructions for obtaining ground truth difficulties for data fr
 * MSAs resulting from a reverse-engineering study on dara from [NorthEuralex](http://northeuralex.org/) ([main experiment](https://github.com/luisevonderwiese/babel2msa))
 
 ### Installation
-1. Clone this repo: `git clone https://github.com/luisevonderwiese/difficulty-prediction-training-data.git`
+1. Clone this repo: 
+```
+git clone https://github.com/luisevonderwiese/difficulty-prediction-training-data.git`
+cd difficulty-prediction-training-data
+git checkout tree_characterization
+```
 2. Install RAxML-NG by following the instructions in [the GitHub repo](https://github.com/amkozlov/raxml-ng).
 3. Install IQ-Tree by following the instructions on [their website](http://www.iqtree.org).
 4. Setup the conda environment:
