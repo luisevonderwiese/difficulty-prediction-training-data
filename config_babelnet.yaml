@@ -1,0 +1,52 @@
+# Provide a list of paths to MSA files for which you wish to generate training data
+# the data type is automatically inferred and the model set to GTR+G for DNA data and to LG+G for AA data
+
+msa_paths: [
+babelnet_bin_msas/iecor_core-wordnet.bin.phy,
+babelnet_bin_msas/iecor_filter_5000.bin.phy,         
+babelnet_bin_msas/iecor_core-wordnet_epitran.bin.phy,
+babelnet_bin_msas/iecor_filter_epitran_5000.bin.phy,
+babelnet_bin_msas/main_core-wordnet.bin.phy,
+babelnet_bin_msas/main_filter_5000.bin.phy,
+babelnet_bin_msas/main_core-wordnet_epitran.bin.phy,
+babelnet_bin_msas/main_filter_epitran_5000.bin.phy,
+babelnet_bin_msas/all_core-wordnet.bin.phy,
+babelnet_bin_msas/all_filter_5000.bin.phy,
+babelnet_bin_msas/all_core-wordnet_epitran.bin.phy,
+babelnet_bin_msas/all_filter_epitran_5000.bin.phy,
+
+
+]
+
+# to use partitioned MSAs, provide a link to the partition file for each MSA,
+# the first in RAxML-NG compatible format, the second in IQ-Tree compatible format
+# note that the MSA features will be computed for the entire alignment
+# In this case, the msa_paths list should be a list of lists:
+# msa_paths: [
+#    [/path/to/msa1, /path/to/msa1.part.ng, /path/to/msa1.part.iqt],
+#    /path/to/msa2, /path/to/msa2.part.ng, /path/to/msa2.part.iqt],
+#    ...
+# ]
+
+# After running the pipeline, the outdir will contain a subdirectory for each given MSA
+# each subdirectory contains:
+# - a directory called "output_files": contains all RAxML-NG and IQ-Tree log files
+# - an .sqlite3 database file containing all information, see README.md for database schema
+outdir: results_babelnet/
+
+software:
+  raxml-ng:
+    command: raxml-ng/bin/raxml-ng # https://github.com/amkozlov/raxml-ng
+    threads: 2
+  iqtree:
+    command: ../iqtree-2.0.6-Linux/bin/iqtree2 # http://www.iqtree.org
+    threads: 2
+
+# Specify whether to run the RAxML-NG bootstrapping and get tree metrics based on the support values
+# this is only recommended for smaller MSAs (e.g. morphological data)
+bootstrap_based_metrics: False
+
+_debug:
+  _num_pars_trees: 50
+  _num_rand_trees: 50
+  _num_parsimony_trees: 100

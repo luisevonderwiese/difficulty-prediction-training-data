@@ -150,3 +150,11 @@ cython_debug/
 slurm
 tmux.txt
 raxml-ng/
+
+babelnet_bin_msas/
+lexibench_bin_msas/
+northeuralex_bin_msas/
+
+results_babelnet/
+results_lexibench/
+results_northeuralex/
