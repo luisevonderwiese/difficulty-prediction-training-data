@@ -1,5 +1,7 @@
 import os
 import shutil
+from padd_msa import padd_msa
+
 
 d = "lexibench_bin_msas"
 for ds in os.listdir(d):
@@ -10,3 +12,7 @@ for ds in os.listdir(d):
     newp = os.path.join(d, ds + ".phy")
     shutil.move(oldp, newp)
     shutil.rmtree(subd)
+    try:
+        AlignIO.read(newp)
+    except:
+        padd_msa(newp)
