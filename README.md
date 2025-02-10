@@ -66,17 +66,23 @@ If you intend to run snakemake on a slurm cluster, you might want to check out [
 ```
 python final_data_collection.py --dir results_lexibench
 python print_difficult.py --dir results_lexibench
+python write_difficult.py --dir results_lexibench
+
 ```
 
 #### babelnet
 ```
 python final_data_collection.py --dir results_babelnet
 python print_difficult.py --dir results_babelnet
+python write_difficult.py --dir results_babelnet
+
 ```
 
 #### northeuralex
 ```
 python final_data_collection.py --dir results_northeuralex
 python print_difficult.py --dir results_northeuralex
+python write_difficult.py --dir results_northeuralex
+
 ```
 
